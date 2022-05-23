@@ -1,0 +1,40 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+
+  - name: create simeone user
+    tags: always
+    user:
+      name: simeone
+      groups: root
+
+  - name: add ssh key for simeone
+    tags: always
+    authorized_key:
+      user: simeone
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID4gawgXkigSswqjFXBHjedBLzbhuC3jI6OsO85InE/0 ansible"
+
+  - name: add sudoers file for simeone
+    tags: always
+    copy:
+      src: sudoer_simeone
+      dest: /etc/sudoers.d/simeone
+      owner:  root
+      group: root
+      mode: 0440
+  
+  - name: install updates (CentOS)
+    tags: always
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: install updates (Ubuntu)
+    tags: always
+    apt:
+     upgrade: dist
+     update_cache: yes
+    when: ansible_distribution == "Ubuntu"

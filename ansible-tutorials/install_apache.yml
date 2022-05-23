@@ -1,0 +1,38 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+  
+  - name: update repository index
+    apt:
+      update_cache: yes
+
+  - name: install apache2 package
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "20.04"
+
+  - name: add php support for appache
+    apt:
+      name: libapache2-mod-php
+      state: latest
+    when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  - name: add apache and php
+    apt: 
+      name: 
+        - apache
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Centos"
+
+  - name: add apache and php consolidate version
+    package:
+     name:
+       - "{{ apache_package}}"
+       - "{{ php_package }}"
+     state: latest
+     update_cache: yes

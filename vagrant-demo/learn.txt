@@ -1,0 +1,23 @@
+config.vm.box - Operating system
+config.vm.provider - virtualbox
+config.vm.network - Networking, how your host sees your box
+config.vm.synced_folder - Synced folders, how you accces file from your computer
+config.vm.provision - Provisioning, waht we want setup
+
+# to lauch a file
+vagrant up
+
+# to suspend running vm
+vagrant suspend
+
+# to resume suspended vm
+vagrant resume
+
+# to create vm
+vagrant init ubuntu/trusty64
+
+# to reload vm after changing configs
+vagrant reload
+
+vagrant ssh
+# to ssh to vm

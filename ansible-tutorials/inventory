@@ -1,0 +1,11 @@
+[web_servers]
+ubuntu@10.44.77.192
+
+[db_servers]
+ubuntu@10.44.77.131
+
+[file_servers]
+ubuntu@10.44.77.220
+
+[workstation]
+ubuntu@10.44.77.192

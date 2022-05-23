@@ -1,0 +1,18 @@
+# commands
+sudo apt-get update && apt-get install -y apt-transport-https curl
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+sudo add-apt-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+
+sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+kubeadm installation du cluster
+kubectl - 
+kubernetes-cni 
+
+kubeadm init --apiserver-advertise-address=192.168.56.101 --node-name $HOSTNAME --pod-network-cidr=10.244.0.0/16
+
+
+Environment="KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf"
+Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"
+
+INSTITUT UNIVERSITAIRE DE TECHNOLOGIE FOTSO VICTOR DE BANDJOUN
