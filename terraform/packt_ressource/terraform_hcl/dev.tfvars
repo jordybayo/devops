@@ -1,1 +1,0 @@
-bucket_name = "jordy-s3-bucket"
