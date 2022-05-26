@@ -37,6 +37,7 @@ EOF
 	# disable swap (assuming that the name is /dev/centos/swap
 	sed -i 's/^\/dev\/mapper\/centos-swap/#\/dev\/mapper\/centos-swap/' /etc/fstab
 	swapoff /dev/mapper/centos-swap
+	swapoff -a
 
 	yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
