@@ -1,49 +1,48 @@
 Vagrant.configure("2") do |config|
 
-config.vm.define "control" do |control|
-  control.vm.box = "centos/7"
-  control.vm.hostname = 'control'
-  control.vm.box_url = "centos/7"
-  control.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", auto_config: false
-  config.vm.provider "virtualbox" do |control|
-    control.memory = "2048"
-    control.cpus = "2"
+  config.vm.define "control" do |control|
+    control.vm.box = "centos/7"
+    control.vm.hostname = 'control'
+    control.vm.box_url = "centos/7"
+    config.vm.network "private_network", ip: "192.168.56.1"
+    config.vm.provider "virtualbox" do |control|
+      control.memory = "2048"
+      control.cpus = "2"
+    end
   end
-end
 
-
-config.vm.define "worker1" do |worker1|
-  worker1.vm.box = "centos/7"
-  worker1.vm.hostname = 'worker1'
-  worker1.vm.box_url = "centos/7"
-  worker1.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", auto_config: false
-  config.vm.provider "virtualbox" do |worker1|
-    worker1.memory = "1024"
-    worker1.cpus = "1"
+  config.vm.define "worker1" do |worker1|
+    worker1.vm.box = "centos/7"
+    worker1.vm.hostname = 'worker1'
+    worker1.vm.box_url = "centos/7"
+    config.vm.network "private_network", ip: "192.168.56.2"
+    config.vm.provider "virtualbox" do |worker1|
+      worker1.memory = "1024"
+      worker1.cpus = "1"
+    end
   end
-end
-
-
-config.vm.define "worker2" do |worker2|
-  worker2.vm.box = "centos/7"
-  worker2.vm.hostname = 'worker2'
-  worker2.vm.box_url = "centos/7"
-  worker2.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", auto_config: false
-  config.vm.provider "virtualbox" do |worker2|
-    worker2.memory = "1024"
-    worker2.cpus = "1"
+  
+  config.vm.define "worker2" do |worker2|
+    worker2.vm.box = "centos/7"
+    worker2.vm.hostname = 'worker2'
+    worker2.vm.box_url = "centos/7"
+    config.vm.network "private_network", ip: "192.168.56.3"
+    config.vm.provider "virtualbox" do |worker2|
+      worker2.memory = "1024"
+      worker2.cpus = "1"
+    end
   end
-end
-
-config.vm.define "worker3" do |worker3|
-  worker3.vm.box = "centos/7"
-  worker3.vm.hostname = 'worker3'
-  worker3.vm.box_url = "centos/7"
-  worker3.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", auto_config: false
-  config.vm.provider "virtualbox" do |worker3|
-    worker3.memory = "1024"
-    worker3.cpus = "1"
+  
+  config.vm.define "worker3" do |worker3|
+    worker3.vm.box = "centos/7"
+    worker3.vm.hostname = 'worker3'
+    worker3.vm.box_url = "centos/7"
+    # worker3.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", auto_config: false
+    config.vm.network "private_network", ip: "192.168.56.4"
+    config.vm.provider "virtualbox" do |worker3|
+      worker3.memory = "1024"
+      worker3.cpus = "1"
+    end
   end
-end
-
-end
+  
+  end
