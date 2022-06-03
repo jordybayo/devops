@@ -1,3 +1,8 @@
+high availaibility
+scalability
+disaster recovery
+
+
 #get available pods
 k get pods
 

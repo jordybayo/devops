@@ -1,3 +1,5 @@
+#!/bin/bash
+
 vagrant ssh node
 sudo su
 sudo yum install git bim bash_completion

@@ -3,7 +3,7 @@ ssh-copy-id -i ~/.ssh/ansible.pub ubuntu@10.44.77.192
 
 
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
-ansible all -m ping
+ansible all -m ping 
 
 ansible all --list-hosts
 ansible all -m gather_facts --limit ubuntu@10.44.77.76
