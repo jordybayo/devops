@@ -22,3 +22,9 @@ kubectl -h | less
 sudo -i
 cd /etc/bash_completion.d
 kubectl completion bash > /etc/bash_completion.d/kubectl
+# see diffrent ways to run kubectl on config
+kubectl config -h
+# see config of the cluster
+kubectl config view
+
+

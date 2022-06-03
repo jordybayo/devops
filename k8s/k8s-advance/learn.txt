@@ -1,6 +1,0 @@
-# see diffrent ways to run kubectl on config
-kubectl config -h
-
-# see config of the cluster
-kubectl config view
-
