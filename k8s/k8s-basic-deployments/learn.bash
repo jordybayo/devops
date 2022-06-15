@@ -65,3 +65,34 @@ minikube service --url k8s-web-to-nginx
 k exec <pod name> -- wget -q0- http://<service name>
 k exec k8s-web-to-nginx-5c8b5cbc95-6lll9 -- wget -qO- http://nginx
 
+
+# create deployment 
+kubectl deployment -h
+kubectl create deployment  --image=nginx nginxiam
+#delete a deployment
+kubectl delete replicasets.apps nginxiam-85fdf998f5
+# get deployment detail
+kubectl get deployment.apps
+kubectl get deployment.apps nginxiam
+# get pods detail
+#create deployment from yaml file
+kubectl apply -f deployment.yaml
+kubectl create deployment --dry-run=client --image=nginx --output=yaml nginxiam > nginxiam.yaml
+# scale deployment
+kubectl scale nginxiam --replicas=3 
+kubectl edit deployment.apps nginxiam
+# how to set labels manually
+kubectl get deployments
+kubectl get deployment --show-labels
+kubectl label deployment nginxiam state=demo
+kubectl label deployment nginxiam state-; kubectl get pods
+# get with selector
+kubectl get deployments --selector state=demo
+kubectl get deployments --selector app=nginxiam
+# Rolling update
+kubectl explain deployment.spec.strategy # best to create if we dont want 2 aps versions running
+kubectl rollout -h
+kubectl create -f rolling.yaml
+kubectl rollout status deployment
+kubectl edit deployment rolling-nginx
+kubectl describe deployment rolling-nginx
