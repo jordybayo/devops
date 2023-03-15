@@ -1,0 +1,50 @@
+# YAML Ain't Markup Language
+---
+# YAML
+person:
+  name: &name "jordy bayo"
+  occupation: "devops"
+  age: !!float 26
+  fav_num: 10e+20
+  gpa: !!str 3.5
+  male: true
+  birthdate: 1994-02-07 14:33:22  #ISO 8602
+  flaws: null
+  hobbies:
+    - sleep
+    - eat
+    - code
+  movies: ["Dark Night", "Prison Break",]
+  friends:
+    - name: "Steph"
+      age: 26
+    - {name: "Adam", age:22}
+    -
+      name: "Joe"
+      age : 26
+  description: >
+    Lorem Ipsum is simply dummy text of 
+    the printing and typesetting industry. Lorem 
+    Ipsum has been the industry's standard dummy
+    text ever since the 1500s, when an unknown 
+    printer took a galley of type and scrambled
+  signature: |
+    name jordy
+    email jordiibayo@gmail.com
+    address ping pong @ 7677
+  id: *name
+
+  base: &base
+    var1: Value1
+
+  foo:
+    <<: *based  # var1: Value1
+    var2: Value2
+
+---
+numbers:
+  age: !!float 23
+  married: !!str true
+  binary: !!int 0b101010
+  hexadecimal: !!int 0x1C7A
+  name: !!str "James"

@@ -1,7 +1,7 @@
 - hosts: db_servers
   become: true
   tasks:
- 
+
   - name: install mariadb package (CentOS)
     dnf:
       name: mariadb
